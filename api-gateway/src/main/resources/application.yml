@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
+
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/users/**
+
+#      default-filters:
+#        - JwtAuthenticationFilter
+
+    discovery:
+      locator:
+        enabled: true
+
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway: DEBUG
