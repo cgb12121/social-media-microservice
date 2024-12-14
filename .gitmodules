@@ -1,0 +1,24 @@
+[submodule "auth-service"]
+    path=auth-service
+    url=https://github.com/cgb12121/SMM-auth-service
+
+[submodule "api-gateway"]
+    path=api-gateway
+    url=https://github.com/cgb12121/api-gateway
+
+[submodule "user-service"]
+    path=user-service
+    url=https://github.com/cgb12121/user-service
+
+[submodule "common"]
+    path=common
+    url=https://github.com/cgb12121/common
+
+[submodule "eureka-server"]
+    path=eureka-server
+    url=https://github.com/cgb12121/eureka-server
+
+[submodule "verification-service"]
+    path=verification-service
+    url=https://github.com/cgb12121/verification-service
+
