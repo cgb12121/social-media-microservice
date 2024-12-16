@@ -12,8 +12,11 @@ spring:
           predicates:
             - Path=/users/**
 
-#      default-filters:
-#        - JwtAuthenticationFilter
+        - id: verification-service
+          uri: lb://verification-service
+          predicates:
+            - Path=/verification/**
+            
 
     discovery:
       locator:
