@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @AllArgsConstructor
@@ -39,7 +40,7 @@ class AuthController {
         return CompletableFuture.supplyAsync(() -> {
             AuthResponse authResponse = authService.login(request);
             return ResponseEntity.ok(authResponse);
-        });
+        }).orTimeout(5, TimeUnit.SECONDS);
     }
 
     @PostMapping("/register")

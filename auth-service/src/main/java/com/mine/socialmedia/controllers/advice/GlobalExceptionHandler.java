@@ -14,9 +14,16 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeoutException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(TimeoutException.class)
+    public ResponseEntity<Map<String, String>> handleTimeoutException(TimeoutException e) {
+        return ResponseEntity.status(408).body(getErrorResponse(e, getCurrentDateTime(), "Timeout"));
+    }
+
 
     @ExceptionHandler(TokenExpiredException.class)
     public ResponseEntity<Map<String, String>> handleTokenExpiredException(TokenExpiredException e) {
